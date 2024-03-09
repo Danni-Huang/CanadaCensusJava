@@ -68,6 +68,7 @@
         <a href="AgeServlet" class="button">Age List</a>
     </div>
 
+<%-- For a given 2016 and 2021 Canada Census year Canada-wide population separated by male and female --%>
   <% List<Age> age = (List<Age>) request.getAttribute("ageList");  
   		if (age != null && !age.isEmpty()) { %>
        <table>

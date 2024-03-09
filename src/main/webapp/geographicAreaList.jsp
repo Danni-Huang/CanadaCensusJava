@@ -72,7 +72,8 @@
         <a href="GeographicAreaServlet?level=2" class="button">2 - Census metropolitan areas (CMA) and census agglomerations (CA)</a>
         <a href="GeographicAreaServlet?level=3" class="button">3 - One CMA and three CAs are divided between adjacent provinces</a>
     </div>
-    
+ 
+ <%-- For each classification, list the names of all geographic areas that belong to that hierarchy level --%>  
     <% List<String> selectedAreas = (List<String>) request.getAttribute("selectedAreas");
        if (selectedAreas != null && !selectedAreas.isEmpty()) { %>
         <h2>Selected Geographic Area</h2>

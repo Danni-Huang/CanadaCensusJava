@@ -24,6 +24,7 @@ public class DBUtil {
 //		return DriverManager.getConnection(URL, USER, PASSWORD);
 	}
 
+	// Geographic Area Classification List: list names of all geographic areas that belong to that hierarchy level
 	public static List<String> getGeographicArea(int level) throws ClassNotFoundException, SQLException {
         String query = "SELECT name, level FROM geographicarea WHERE level = ?";
         try (Connection connection = getConnection();
@@ -39,7 +40,8 @@ public class DBUtil {
             return result;
         }
     }
-	
+
+	// Individual Geographic Area Details: display its name, code, level and total population on 2021
 	public static List<GeographicArea> getGeographicAreaDetails(int level) throws SQLException {
         Connection conn = null;
         PreparedStatement pstmt = null;
@@ -52,7 +54,7 @@ public class DBUtil {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        String sql = "SELECT name, code, level, SUM(combined) AS total_population " +
+        String sql = "SELECT ga.name, ga.code, ga.level, SUM(ag.combined) AS total_population " +
                      "FROM geographicarea ga " +
                      "JOIN age ag ON ga.geographicAreaID = ag.geographicArea " +
                      "JOIN censusyear cy ON ag.censusYear = cy.censusYearId " +
@@ -74,6 +76,7 @@ public class DBUtil {
         return geographicAreaDetail;
     }
 	
+	// Age List: For a given 2016 and 2021 Canada Census year Canada-wide population separated by male and female
 	public static List<Age> getAgeList() throws SQLException {
         Connection conn = null;
         PreparedStatement pstmt = null;

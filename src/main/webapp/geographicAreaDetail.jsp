@@ -78,8 +78,8 @@
         <a href="GeographicAreaDetailServlet?level=2" class="button">2 - Census metropolitan areas (CMA) and census agglomerations (CA)</a>
         <a href="GeographicAreaDetailServlet?level=3" class="button">3 - One CMA and three CAs are divided between adjacent provinces</a>
     </div>
-    
- 	
+ 
+ <%-- For a given geographic area, display its name, code, level, and total population as reported on the 2021 Canada Census --%>	
   <% List<GeographicArea> geographicAreaDetail = (List<GeographicArea>) request.getAttribute("selectedAreaDetail"); 
        if (geographicAreaDetail != null && !geographicAreaDetail.isEmpty()) { %>
        <h2>Geographic Area Detail</h2>

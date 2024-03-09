@@ -37,10 +37,10 @@ public class LoginServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		
+		// prompts the user for a username and password to access the MySQL database
 
     	if ("root".equals(username) && "root".equals(password)) {
     		response.sendRedirect("MainMenu.jsp");
